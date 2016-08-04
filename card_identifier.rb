@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require_relative 'card'
 
 puts 'Enter CC number: '
