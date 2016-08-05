@@ -46,7 +46,7 @@ class Card
   end
 
   def cc_symbols
-    number.split('').map(&:to_i)
+    @cc_symbols ||= number.split('').map(&:to_i)
   end
 
   def chosen_selector
