@@ -23,14 +23,18 @@ class Card
   end
 
   def correct?
-    return false unless valid? || !identified_system.nil?
-    ((immutable + mutable).inject(0, :+) % 10) == 0
+    return false if !valid? || identified_system.nil? || check_sum.zero?
+    (check_sum % 10) == 0
   end
 
   private
 
   def identified_system
     SYSTEM_MATCHER.find { |pattern, system| !number.match(pattern).nil? }
+  end
+
+  def check_sum
+    (immutable + mutable).inject(0, :+)
   end
 
   def immutable

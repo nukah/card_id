@@ -47,6 +47,12 @@ describe Card do
 
       it { expect(cc).to be_correct }
     end
+
+    context 'with empty number' do
+      let(:value) { '' }
+
+      it { expect(cc).not_to be_correct }
+    end
   end
 
   describe '#system' do
